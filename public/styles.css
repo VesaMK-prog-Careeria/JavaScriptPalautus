@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#navigaatio button {
+    margin: 5px;
+    padding: 10px;
+}
+
+#main_alue {
+    text-align: center;
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#main_alue table {
+    text-align: left;
+    border-collapse: collapse;
+    width: auto;
+}
+
+#main_alue th {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+#main_alue td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#main_alue tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#main_alue tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+/* Dark Mode */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+#main_alue.dark-mode {
+    background-color: #444;
+    color: #fff;
+}
+#main_alue th.dark-mode, #main_alue td.dark-mode{
+    background-color: #555;
+    color: #fff;
+}
+#main_alue tr.dark-mode {
+    background-color: #666;
+}
+#main_alue tr.dark-mode:nth-child(even) {
+    background-color: #555;
+}
+#main_alue tr.dark-mode:hover {
+    background-color: #777;
+}
+
+
