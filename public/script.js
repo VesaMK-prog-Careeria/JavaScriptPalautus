@@ -30,5 +30,38 @@ $(document).ready(function() {
         });
     });
 });
+$(function () {
+    var socket = io();
+    var user = ''; // Nimimerkkiä varten
 
+    // Kysy nimimerkkiä vain kerran, kun chat avataan ensimmäistä kertaa
+    $('#avaaChat').one('click', function() {
+        user = window.prompt('Anna nimimerkki:');
+        if (user) { // Lähetä liittymisviesti vain, jos käyttäjänimi on annettu
+            socket.emit('chat message', user + " liittyi keskusteluun.");
+        }
+        //$('#chat').slideToggle('slow');
+    });
+
+    // Muuta nappulan toimintaa niin, että se vain avaa/sulkee chatin
+    // eikä kysy nimimerkkiä uudelleen
+    $('#avaaChat').click(function() {
+        $('#chat').slideToggle('slow');
+    });
+
+    $('form').submit(function(e) {
+        e.preventDefault(); // Estää lomakkeen lähetyksen
+        // Tarkista onko käyttäjänimi asetettu ennen viestin lähetystä
+        if (user && $('#input').val().trim() !== '') {
+            socket.emit('chat message', user + ' kirjoitti: ' + $('#input').val());
+            $('#input').val('');
+        }
+        return false;
+    });
+
+    socket.on('chat message', function(msg) {
+        $('#messages').append($('<li>').text(msg));
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+});
 

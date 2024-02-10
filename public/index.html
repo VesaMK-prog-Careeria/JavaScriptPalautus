@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yrityksen Sivusto</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,9 +13,18 @@
         <button id="yhteystiedot">Yhteystiedot</button>
         <button id="henkilokunta">Henkilökunta</button>
         <button id="darktheme">Dark Theme</button>
-
+        <button id="avaaChat">Chat</button>
     </div>
+
     <div id="main_alue">Tervetuloa yrityksemme kotisivulle!</div>
+
+    <div id="chat" style="display: none;">
+        <ul id="messages"></ul>
+        <form id="form" action="">
+          <input id="input" autocomplete="off" /><button>Lähetä</button>
+        </form>
+      </div>
+    <script src="/socket.io/socket.io.js"></script>  
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>

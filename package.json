@@ -1,6 +1,17 @@
 {
   "dependencies": {
+    "express": "^4.18.2",
     "express.js": "^1.0.0",
-    "node.js": "^0.0.1-security"
-  }
+    "node.js": "^0.0.1-security",
+    "socket.io": "^4.7.4"
+  },
+  "name": "pv5-palautus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vesa",
+  "license": "ISC",
+  "description": ""
 }
