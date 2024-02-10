@@ -1,12 +1,10 @@
 body {
     font-family: Arial, sans-serif;
 }
-
 #navigaatio button {
     margin: 5px;
     padding: 10px;
 }
-
 #main_alue {
     text-align: center;
     margin-top: 20px;
@@ -14,13 +12,11 @@ body {
     width: 100%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-
 #main_alue table {
     text-align: left;
     border-collapse: collapse;
     width: auto;
 }
-
 #main_alue th {
     background-color: #f2f2f2;
     color: #333;
@@ -28,16 +24,13 @@ body {
     text-align: left;
     border-bottom: 2px solid #ddd;
 }
-
 #main_alue td {
     border: 1px solid #ddd;
     padding: 10px;
 }
-
 #main_alue tr:nth-child(even) {
     background-color: #f9f9f9;
 }
-
 #main_alue tr:hover {
     background-color: #f5f5f5;
     transition: background-color 0.3s ease;
@@ -64,5 +57,56 @@ body.dark-mode {
 #main_alue tr.dark-mode:hover {
     background-color: #777;
 }
-
-
+#chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    height: auto;
+    max-height: 60%; /* Aseta maksimikorkeus, jotta chat-ikkuna ei täytä koko näyttöä */
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden; /* Piilota ylimenevä sisältö */
+    display: flex;
+    flex-direction: column; /* Aseta elementit pystysuuntaisesti */
+}
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Salli vieritys */
+    flex-grow: 1; /* Anna viestilistalle jäljellä oleva tila */
+}
+#form {
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #ddd; /* Erottaa lomakkeen viestilistasta */
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+}
+#input {
+    flex-grow: 1;
+    margin-right: 10px; /* Väli inputin ja lähetysnappulan välillä */
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+}
+#input:focus {
+    outline: none;
+}
+#form > button {
+    flex-shrink: 0;
+    cursor: pointer;
+}
+#messages > li { 
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #f0f0f0; /* Lisätään erottava viiva viestien välille */
+}
+#messages li:nth-child(odd) {
+    background-color: #f0f0f0; /* Vaihdetaan parittomat viestit harmaaksi */
+}
