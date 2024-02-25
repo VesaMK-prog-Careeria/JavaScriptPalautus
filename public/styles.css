@@ -56,11 +56,11 @@ body.dark-mode {
     background-color: #333;
     color: #fff;
 }
-#main_alue.dark-mode {
+ #main_alue.dark-mode {
     background-color: #444;
     color: #fff;
-}
-#main_alue th.dark-mode, #main_alue td.dark-mode{
+} 
+ #main_alue th.dark-mode, #main_alue td.dark-mode{
     background-color: #555;
     color: #fff;
 }
@@ -73,7 +73,7 @@ body.dark-mode {
 }
 #main_alue tr.dark-mode:hover {
     background-color: #777;
-}
+} 
 #chat {
     position: fixed;
     bottom: 20px;

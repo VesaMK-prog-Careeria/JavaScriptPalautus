@@ -22,14 +22,22 @@ $(document).ready(function() { // Kun sivu on ladattu, suorita tämä
         $('#main_alue').append('<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3213.398889116665!2d26.941075152854186!3d60.46690718051227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfi!2sfi!4v1707650585022!5m2!1sfi!2sfi" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>');
     });
 
-    $('#henkilokunta').click(function() { 
+    $('#henkilokunta').click(function() {
         $.getJSON('/henkilosto.json', function(data) { // Hae henkilöstötiedot JSON-tiedostosta
+            var isDarkMode = $('body').hasClass('dark-mode'); // Tarkista, onko dark mode päällä
             var henkilosto = '<h2>Henkilökunta</h2><table><tr><th>Nimi</th><th>Tehtävä</th></tr>'; // Luo taulukko
-            $.each(data, function(key, val) { // Käy JSON-tiedosto läpi
+            $.each(data, function(_key, val) { // Käy JSON-tiedosto läpi
                 henkilosto += '<tr><td>' + val.nimi + '</td><td>' + val.tehtava + '</td></tr>'; // Lisää taulukkoon henkilön nimi ja tehtävä
             });
             henkilosto += '</table>'; // Sulje taulukko
             $('#main_alue').html(henkilosto); // Lisää taulukko sivulle
+
+            if (isDarkMode) { // Jos dark mode on päällä
+                $('table').addClass('dark-mode'); // Lisää taulukolle dark mode -tyyli
+                $('th').addClass('dark-mode'); // Lisää otsikoille dark mode -tyyli
+                $('td').addClass('dark-mode'); // Lisää soluille dark mode -tyyli
+                $('h2').addClass('dark-mode'); // Lisää otsikolle dark mode -tyyli
+            }
         });
     });
 });
